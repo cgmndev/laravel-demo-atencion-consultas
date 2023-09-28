@@ -10,10 +10,6 @@ class Rol extends Model
 
     protected $table = 'rol';
 
-    // const ADMIN = 1;
-    // const OPER = 2;
-    // const ALU = 3;
-
     protected $fillable = [
         'nombre',
         'codigo'

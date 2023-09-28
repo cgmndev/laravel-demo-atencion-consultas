@@ -195,6 +195,7 @@
         <div id="menu-detalle" class='hidden px-2 md:block md:flex-1 text-sm '>
             <div class="my-5" />
 
+
             {{-- MENU ROLES ADMINISTRADOR Y OPERADOR. --}}
             @if (in_array(auth()->user()->rol->codigo, ['ADMIN', 'OPER']))
                 <x-nav-link href="{{ route('admin_dashboard') }}" :active="request()->routeIs('admin_dashboard')">
@@ -220,7 +221,6 @@
 
 
 
-
             {{-- MENU ROL ALUMNO --}}
             @elseif (in_array(auth()->user()->rol->codigo, ['ALU']))
                 <x-nav-link href="{{ route('alumno_dashboard') }}" :active="request()->routeIs('alumno_dashboard')">
@@ -235,11 +235,20 @@
                     </span>
                 </x-nav-link>
 
-
-
-
             @endif
             {{-- FIN MENU ROL ALUMNO --}}
+
+
+            <form class="mt-5" method="POST" action="{{ route('logout') }}" x-data>
+                @csrf
+
+                <x-nav-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                    <x-ri-logout-circle-r-line class="h-6 w-6 mx-auto"/>
+                    <span class='inline-block text-xs w-auto md:w-full ml-2 md:ml-0'>
+                    Salir
+                    </span>
+                </x-nav-link>
+            </form>
 
         </div>
     </div>

@@ -1,6 +1,7 @@
 <?php
+namespace App\Http\Controllers\admin;
 
-namespace App\Http\Controllers;
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
@@ -8,11 +9,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function listar()
     {
-        return view('users.list');
+        return view('admin.users.listar');
     }
 }

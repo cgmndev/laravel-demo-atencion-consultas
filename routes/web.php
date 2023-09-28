@@ -32,18 +32,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
         return view('admin.dashboard');
     })->name('admin_dashboard');
 
-    Route::get('/admin/consultas', function () {
-        return view('admin.consultas');
-    })->name('admin_consultas');
-
-    // Route::get('/admin/usuarios', function () {
-    //     return view('admin.usuarios');
-    // })->name('admin_usuarios');
-
-    Route::resource('/admin/usuarios', \App\Http\Controllers\UserController::class)->only([
-        'index', 'create', 'store', 'show'
-    ]);
-
+    Route::get('/admin/consultas', '\App\Http\Controllers\admin\ConsultaController@listar')->name('admin.consultas.listar');
+    Route::get('/admin/usuarios', '\App\Http\Controllers\admin\UserController@listar')->name('admin.usuarios.listar');
 });
 
 // Rutas para usuarios con el rol "Alumno"
@@ -52,4 +42,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::get('/alumno/dashboard', function () {
         return view('alumno.dashboard');
     })->name('alumno_dashboard');
+
+    Route::get('/alumno/consultas', '\App\Http\Controllers\alumno\ConsultaController@listar')->name('alumno.consultas.listar');
 });

@@ -10,6 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -63,6 +64,16 @@ class User extends Authenticatable
     public function rol(): BelongsTo
     {
         return $this->belongsTo(Rol::class, 'rol_id');
+    }
+
+    public function consultasAlumnos(): HasMany
+    {
+        return $this->hasMany(Consulta::class, 'ALUMNO_ID');
+    }
+
+    public function consultasOperadores(): HasMany
+    {
+        return $this->hasMany(Consulta::class, 'OPERADOR_ID');
     }
 
 

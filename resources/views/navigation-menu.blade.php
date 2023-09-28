@@ -195,6 +195,7 @@
         <div id="menu-detalle" class='hidden px-2 md:block md:flex-1 text-sm '>
             <div class="my-5" />
 
+            {{-- MENU ROLES ADMINISTRADOR Y OPERADOR. --}}
             @if (in_array(auth()->user()->rol->codigo, ['ADMIN', 'OPER']))
                 <x-nav-link href="{{ route('admin_dashboard') }}" :active="request()->routeIs('admin_dashboard')">
                     <x-ri-dashboard-fill class="h-6 w-6 mx-auto" />
@@ -203,24 +204,42 @@
                     </span>
                 </x-nav-link>
 
-                <x-nav-link href="{{ route('admin_consultas') }}" :active="request()->routeIs('admin_consultas')">
+                <x-nav-link href="{{ route('admin.consultas.listar') }}" :active="request()->routeIs('admin.consultas.listar')">
                     <x-ri-question-fill class="h-6 w-6 mx-auto" />
                     <span class='inline-block text-xs w-auto md:w-full ml-2 md:ml-0'>
                         Consultas
                     </span>
                 </x-nav-link>
 
-                <x-nav-link href="{{ route('usuarios.index') }}" :active="request()->routeIs('usuarios.index')">
+                <x-nav-link href="{{ route('admin.usuarios.listar') }}" :active="request()->routeIs('admin.usuarios.listar')">
                     <x-ri-user-fill class="h-6 w-6 mx-auto" />
                     <span class='inline-block text-xs w-auto md:w-full ml-2 md:ml-0'>
                         Usuarios
                     </span>
                 </x-nav-link>
+
+
+
+
+            {{-- MENU ROL ALUMNO --}}
             @elseif (in_array(auth()->user()->rol->codigo, ['ALU']))
                 <x-nav-link href="{{ route('alumno_dashboard') }}" :active="request()->routeIs('alumno_dashboard')">
-                    {{ __('Dashboard') }}
+                    <x-ri-dashboard-fill class="h-6 w-6 mx-auto" />
+                    Dashboard
                 </x-nav-link>
+
+                <x-nav-link href="{{ route('alumno.consultas.listar') }}" :active="request()->routeIs('alumno.consultas.listar')">
+                    <x-ri-question-fill class="h-6 w-6 mx-auto" />
+                    <span class='inline-block text-xs w-auto md:w-full ml-2 md:ml-0'>
+                        Consultas
+                    </span>
+                </x-nav-link>
+
+
+
+
             @endif
+            {{-- FIN MENU ROL ALUMNO --}}
 
         </div>
     </div>

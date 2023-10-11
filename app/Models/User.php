@@ -66,6 +66,11 @@ class User extends Authenticatable
         return $this->belongsTo(Rol::class, 'rol_id');
     }
 
+    public function comuna(): BelongsTo
+    {
+        return $this->belongsTo(Comuna::class, 'comuna_id');
+    }
+
     public function consultasAlumnos(): HasMany
     {
         return $this->hasMany(Consulta::class, 'ALUMNO_ID');

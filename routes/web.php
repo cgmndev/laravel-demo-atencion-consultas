@@ -34,6 +34,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::get('/admin/consultas', '\App\Http\Controllers\admin\ConsultaController@listar')->name('admin.consultas.listar');
     Route::get('/admin/usuarios', '\App\Http\Controllers\admin\UserController@listar')->name('admin.usuarios.listar');
+    Route::get('/admin/usuarios/crear', '\App\Http\Controllers\admin\UserController@crear')->name('admin.usuarios.crear');
+    Route::get('/admin/usuarios/{id}/editar', '\App\Http\Controllers\admin\UserController@editar')->name('admin.usuarios.editar');
 });
 
 // Rutas para usuarios con el rol "Alumno"

@@ -25,14 +25,6 @@ class UserController extends Controller
             "formName" => "Formulario de creación de Usuario",
             "textButton" => "Crear Usuario"
         ]);
-
-        // return view('admin.users.crear')->with([
-        //     "updating" => false,
-        //     "user" => new User(),
-        //     "title" => "Crear nuevo Usuario",
-        //     "formName" => "Formulario de creación de Usuario",
-        //     "textButton" => "Crear Usuario"
-        // ]);
     }
 
     public function editar(int $id):Renderable

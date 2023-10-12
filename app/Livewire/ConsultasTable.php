@@ -20,23 +20,17 @@ class ConsultasTable extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->sortable(),
-            Column::make("CODIGO", "CODIGO")
+            Column::make("CODIGO", "codigo")
                 ->sortable(),
-            Column::make("MOTIVO CONSULTA ID", "MOTIVO_CONSULTA_ID")
+            Column::make("MOTIVO CONSULTA", "motivoconsulta.nombre")
                 ->sortable(),
-            Column::make("TITULO", "TITULO")
+            Column::make("TITULO", "titulo")
                 ->sortable(),
-            Column::make("MENSAJE", "MENSAJE")
+            Column::make("ESTADO", "estado")
                 ->sortable(),
-            Column::make("ALUMNO ID", "ALUMNO_ID")
+            Column::make("Fecha creación", "created_at")
                 ->sortable(),
-            Column::make("OPERADOR ID", "OPERADOR_ID")
-                ->sortable(),
-            Column::make("ESTADO", "ESTADO")
-                ->sortable(),
-            Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
+                Column::make("Fecha actualización", "updated_at")
                 ->sortable(),
         ];
     }

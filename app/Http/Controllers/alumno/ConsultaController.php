@@ -17,7 +17,13 @@ class ConsultaController extends Controller
 
     public function crear()
     {
-
+        return view('alumno.consultas.crear', [
+            "updating" => false,
+            "consulta" => new Consulta(),
+            "title" => "Crear nueva Consulta",
+            "formName" => "Formulario de creación de Consulta",
+            "textButton" => "Crear Consulta"
+        ]);
     }
 
     public function actualizar(Request $request)

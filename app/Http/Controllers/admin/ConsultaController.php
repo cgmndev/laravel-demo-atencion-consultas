@@ -20,7 +20,7 @@ class ConsultaController extends Controller
 
     }
 
-    public function actualizar(Request $request)
+    public function editar(Request $request)
     {
 
     }

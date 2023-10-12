@@ -18,7 +18,7 @@ class MotivoConsulta extends Model
 
     public function consultas(): HasMany
     {
-        return $this->hasMany(Consulta::class, 'MOTIVO_CONSULTA_ID');
+        return $this->hasMany(Consulta::class, 'motivo_consulta_id');
     }
 
 }

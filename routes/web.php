@@ -46,4 +46,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     })->name('alumno_dashboard');
 
     Route::get('/alumno/consultas', '\App\Http\Controllers\alumno\ConsultaController@listar')->name('alumno.consultas.listar');
+    Route::get('/alumno/consultas/crear', '\App\Http\Controllers\alumno\ConsultaController@crear')->name('alumno.consultas.crear');
 });

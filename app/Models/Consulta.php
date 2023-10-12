@@ -19,12 +19,13 @@ class Consulta extends Model
         'MENSAJE',
         'ALUMNO_ID',
         'OPERADOR_ID',
-        'ESTADO'
+        'ESTADO',
+        'ARCHIVO'
     ];
 
-    public function motivoConsulta(): BelongsTo
+    public function motivoconsulta(): BelongsTo
     {
-        return $this->belongsTo(MotivoConsulta::class, 'MOTIVO_CONSULTA_ID');
+        return $this->belongsTo(MotivoConsulta::class, 'motivo_consulta_id');
     }
 
     public function operador(): BelongsTo

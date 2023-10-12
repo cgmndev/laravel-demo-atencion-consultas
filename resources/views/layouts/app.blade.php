@@ -20,14 +20,20 @@
 </head>
 
 <body class="font-sans antialiased h-full bg-slate-100" style="height: 100% !important">
+
     <x-banner />
 
     <div class="h-full min-h-full bg-gray-100 ">
 
         <div class='md:flex  min-h-full h-full w-full '>
+
+            {{-- MENU AZUL IZQUIERDO --}}
             @livewire('navigation-menu')
+            {{-- FIN MENU AZUL IZQUIERDO --}}
+
             <div class="flex-1 flex-col w-full h-full min-h-full md:pl-24">
 
+                {{-- MENU SUPERIOR --}}
                 <nav class="bg-navbar mt-10 md:mt-0 fixed w-full z-10 top-0 h-auto md:pr-24">
                     <div class="flex flex-row h-20">
 
@@ -63,12 +69,16 @@
                     </div>
 
                 </nav>
+                {{-- FIN MENU SUPERIOR --}}
 
+
+                {{-- CONTENIDO --}}
                 <div class="pl-3 md:pl-10 pr-3 md:pr-10 ">
                     <div class="pt-32 md:pt-28">
                         {{ $slot }}
                     </div>
                 </div>
+                {{-- FIN CONTENIDO --}}
 
             </div>
         </div>

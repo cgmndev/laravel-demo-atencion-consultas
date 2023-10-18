@@ -30,11 +30,11 @@ class Consulta extends Model
 
     public function operador(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'OPERADOR_ID');
+        return $this->belongsTo(User::class, 'operador_id');
     }
 
     public function alumno(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'ALUMNO_ID');
+        return $this->belongsTo(User::class, 'alumno_id');
     }
 }

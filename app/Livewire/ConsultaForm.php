@@ -47,6 +47,7 @@ class ConsultaForm extends Component
         $this->consulta->titulo = Str::title($this->consulta->titulo);
         $this->consulta->mensaje = $this->consulta->mensaje;
         $this->consulta->motivo_consulta_id = $this->motivoConsultaSeleccionado;
+        $this->consulta->alumno_id = auth()->user()->id;
 
         $this->archivo->store("uploads", "public");
         $this->consulta->archivo = $this->archivo;

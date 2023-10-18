@@ -73,12 +73,12 @@ class User extends Authenticatable
 
     public function consultasAlumnos(): HasMany
     {
-        return $this->hasMany(Consulta::class, 'ALUMNO_ID');
+        return $this->hasMany(Consulta::class, 'alumno_id');
     }
 
     public function consultasOperadores(): HasMany
     {
-        return $this->hasMany(Consulta::class, 'OPERADOR_ID');
+        return $this->hasMany(Consulta::class, 'operador_id');
     }
 
 

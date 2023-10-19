@@ -31,8 +31,10 @@ class ConsultasTable extends DataTableComponent
                 ->sortable(),
             Column::make("Fecha creación", "created_at")
                 ->sortable(),
-                Column::make("Fecha actualización", "updated_at")
-                ->sortable(),
+            Column::make("ACCIONES", "id")
+                ->format(
+                    fn ($value, $row, Column $column) => view('alumno.consultas.table-cell-acciones')->withValue($row)
+                )
         ];
     }
 

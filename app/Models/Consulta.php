@@ -20,7 +20,9 @@ class Consulta extends Model
         'ALUMNO_ID',
         'OPERADOR_ID',
         'ESTADO',
-        'ARCHIVO'
+        'ARCHIVO',
+        'RESPUESTA_TITULO',
+        'RESPUESTA_MENSAJE'
     ];
 
     public function motivoconsulta(): BelongsTo

@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     })->name('admin_dashboard');
 
     Route::get('/admin/consultas', '\App\Http\Controllers\admin\ConsultaController@listar')->name('admin.consultas.listar');
+    Route::get('/admin/consulta/{id}/gestionar', '\App\Http\Controllers\admin\ConsultaController@gestionar')->name('admin.consulta.gestionar');
+    Route::get('/admin/consulta/{id}/ver', '\App\Http\Controllers\admin\ConsultaController@ver')->name('admin.consulta.ver');
     Route::get('/admin/usuarios', '\App\Http\Controllers\admin\UserController@listar')->name('admin.usuarios.listar');
     Route::get('/admin/usuarios/crear', '\App\Http\Controllers\admin\UserController@crear')->name('admin.usuarios.crear');
     Route::get('/admin/usuarios/{id}/editar', '\App\Http\Controllers\admin\UserController@editar')->name('admin.usuarios.editar');
@@ -47,5 +49,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
 
     Route::get('/alumno/consultas', '\App\Http\Controllers\alumno\ConsultaController@listar')->name('alumno.consultas.listar');
     Route::get('/alumno/consultas/crear', '\App\Http\Controllers\alumno\ConsultaController@crear')->name('alumno.consultas.crear');
-    Route::get('/alumno/consulta/{id}', '\App\Http\Controllers\alumno\ConsultaController@listar')->name('alumno.consulta.listar');
+    Route::get('/alumno/consulta/{id}/ver', '\App\Http\Controllers\alumno\ConsultaController@ver')->name('alumno.consulta.ver');
 });

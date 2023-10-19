@@ -42,6 +42,11 @@ class ConsultasTableAdmin extends DataTableComponent
 
     public function builder(): Builder
     {
-        return Consulta::orderby('operador_id', 'asc') ;
+        if(in_array(auth()->user()->rol->codigo, ['ADMIN'])){
+            return Consulta::orderby('operador_id', 'asc') ;
+        }else if(in_array(auth()->user()->rol->codigo, ['OPER'])){
+            return Consulta::where('operador_id', auth()->user()->id)->orderby('operador_id', 'asc') ;
+        }
+
     }
 }

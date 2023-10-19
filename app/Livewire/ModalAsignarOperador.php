@@ -15,14 +15,9 @@ class ModalAsignarOperador extends ModalComponent
 
     public function mount()
     {
-        //dd($consulta_id);
-        //Gate::authorize('update', $this->consulta);
-        //$this->consulta = Consulta::find($consulta_id);
-
         if ($this->consulta->operador) {
             $this->operadorSeleccionado = $this->consulta->operador->id;
         }
-
     }
     public function rules(): array
     {

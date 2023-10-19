@@ -89,6 +89,7 @@
     @stack('modals')
 
     @livewireScripts
+    @livewire('wire-elements-modal')
 </body>
 
 </html>

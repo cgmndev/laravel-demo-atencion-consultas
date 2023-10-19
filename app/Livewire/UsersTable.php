@@ -33,7 +33,7 @@ class UsersTable extends DataTableComponent
                 ->sortable(),
             Column::make("Updated at", "updated_at")
                 ->sortable(),
-                Column::make("Actions") ->label( fn($row, Column $column) => view('admin.users.actions')->with(['user' =>$row]) ),
+            Column::make("Actions") ->label( fn($row, Column $column) => view('admin.users.actions')->with(['user' =>$row]) ),
         ];
     }
 }

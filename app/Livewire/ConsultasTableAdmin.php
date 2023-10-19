@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Illuminate\Database\Eloquent\Builder;
 use App\Models\Consulta;
 
 class ConsultasTableAdmin extends DataTableComponent
@@ -20,21 +21,27 @@ class ConsultasTableAdmin extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->sortable(),
-            Column::make("CODIGO", "codigo")
+            Column::make("Fecha", "created_at")
+                ->sortable(),
+            Column::make("ALUMNO", "alumno.name")
                 ->sortable(),
             Column::make("MOTIVO CONSULTA", "motivoconsulta.nombre")
                 ->sortable(),
             Column::make("ESTADO", "estado")
                 ->sortable(),
-            Column::make("ALUMNO", "alumno.name")
-                ->sortable(),
+
             Column::make("OPERADOR", "operador.name")
                 ->sortable(),
-            Column::make("Fecha actualización", "updated_at")
-                ->sortable(),
+            Column::make("ACCIONES", "id")
+                ->format(
+                    fn ($value, $row, Column $column) => view('admin.consultas.table-cell-operador')->withValue($row)
+                )
+
         ];
     }
 
-
-
+    public function builder(): Builder
+    {
+        return Consulta::orderby('operador_id', 'asc') ;
+    }
 }

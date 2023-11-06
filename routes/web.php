@@ -19,10 +19,9 @@ Route::get('/', function () {
 // Rutas para usuarios con el rol "Administrador u Operador"
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified', 'checkRol:ADMIN,OPER'])->group(function () {
 
-    Route::get('/admin/dashboard', function () { return view('admin.dashboard'); })->name('admin_dashboard');
+    Route::get('/admin', function () { return redirect('/admin/dashboard'); });
 
-    Route::get('/admin', function () { return view('admin.dashboard'); });
-
+    Route::get('/admin/dashboard', '\App\Http\Controllers\admin\DashboardController@listar')->name('admin_dashboard');
     Route::get('/admin/consultas', '\App\Http\Controllers\admin\ConsultaController@listar')->name('admin.consultas.listar');
     Route::get('/admin/consulta/{id}/gestionar', '\App\Http\Controllers\admin\ConsultaController@gestionar')->name('admin.consulta.gestionar');
     Route::get('/admin/consulta/{id}/ver', '\App\Http\Controllers\admin\ConsultaController@ver')->name('admin.consulta.ver');

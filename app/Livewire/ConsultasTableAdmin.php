@@ -6,10 +6,15 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use Illuminate\Database\Eloquent\Builder;
 use App\Models\Consulta;
+use App\Exports\ConsultasExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ConsultasTableAdmin extends DataTableComponent
 {
     protected $model = Consulta::class;
+
+    public bool $columnSelect = true;
+
 
     public function configure(): void
     {
@@ -40,6 +45,22 @@ class ConsultasTableAdmin extends DataTableComponent
         ];
     }
 
+    public function bulkActions(): array
+    {
+        return [
+            'export' => 'Exportar'
+        ];
+    }
+
+    public function export()
+    {
+        $consultas = $this->getSelected();
+
+        $this->clearSelected();
+
+        return Excel::download(new ConsultasExport($consultas), 'consultas.xlsx');
+    }
+
     public function builder(): Builder
     {
         if(in_array(auth()->user()->rol->codigo, ['ADMIN'])){
@@ -49,4 +70,6 @@ class ConsultasTableAdmin extends DataTableComponent
         }
 
     }
+
+
 }

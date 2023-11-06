@@ -45,11 +45,6 @@
 
             {{-- MENU ROL ALUMNO --}}
             @if (in_array(auth()->user()->rol->codigo, ['ALU']))
-                <x-nav-link href="{{ route('alumno_dashboard') }}" :active="request()->routeIs('alumno_dashboard')">
-                    <x-ri-dashboard-fill class="h-6 w-6 mx-auto" />
-                    Dashboard
-                </x-nav-link>
-
                 <x-nav-link href="{{ route('alumno.consultas.listar') }}" :active="request()->routeIs('alumno.consultas.listar')">
                     <x-ri-question-fill class="h-6 w-6 mx-auto" />
                     <span class='inline-block text-xs w-auto md:w-full ml-2 md:ml-0'>

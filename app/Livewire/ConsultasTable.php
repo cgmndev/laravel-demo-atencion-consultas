@@ -40,6 +40,6 @@ class ConsultasTable extends DataTableComponent
 
     public function builder(): Builder
     {
-        return Consulta::where('alumno_id', auth()->user()->id);
+        return Consulta::where('alumno_id', auth()->user()->id)->orderByDesc('created_at', 'DESC');
     }
 }

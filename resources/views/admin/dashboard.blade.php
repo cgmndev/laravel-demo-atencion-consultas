@@ -33,8 +33,7 @@
       </div>
 
 
-      <livewire:dashboard />
-
-        @livewireChartsScripts
+      <livewire:dashboard :indicadores="$indicadores" />
+      @livewireChartsScripts
 
 </x-app-layout>

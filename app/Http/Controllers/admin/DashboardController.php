@@ -17,6 +17,7 @@ class DashboardController extends Controller
             'total_consultas' => Consulta::count(),
             'total_consultas_pendientes' => Consulta::where('estado', 'Abierta')->count(),
             'total_consultas_gestionadas' => Consulta::where('estado', 'Cerrada')->count()
+
         ];
 
         return view('admin.dashboard', compact('indicadores'));

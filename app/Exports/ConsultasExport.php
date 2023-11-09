@@ -15,4 +15,5 @@ class ConsultasExport implements ShouldAutoSize, FromCollection
     {
         return Consulta::select('id', 'titulo', 'mensaje')->get();
     }
+
 }
